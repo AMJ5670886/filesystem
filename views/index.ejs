@@ -4,10 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
     <main>
-        <h1>Page 1</h1>
+        <div style="display: flex; align-items: center;">
+            <form action="<% if(editing){ %>/edit-task<% } else { %>/add-task <% } %>" method="POST"> 
+                <label for="taskname" class="font-size">Task Name</label>
+                <input name="name" id="name" value="<% if(editing){ %> <%= task.name %> <% } %>">
+                <% if(editing) { %>
+                    <input type="hidden" name="id" id="id" value="<%= task.id %>" >
+                <% } %>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+            <%if(editing){ %>
+                <button onclick="window.location.href='/cancel'" class="btn">Cancel</button>
+            <% } %>
+        </div>
+
+        <div>
+            <% if (tasks.length>0) { %>
+                <h2 class="centered">Tasks</h2><hr>
+                <% tasks.forEach((task)=>{ %>
+                <div style="display: flex; align-items: center;">
+                    <h1 style="margin-right: 10px;"><%= task.name %></h1>
+                    <button onclick="window.location.href='/edit-task/<%= task.id %>/?edit=true'" style="margin-right: 10px;" class="btn">Edit</button>
+                    <form action="/delete-task" method="POST" style="margin-right: 10px;">
+                        <input type="hidden" name="id" id="id" value="<%= task.id %>">
+                        <button type="submit" class="btn">Delete</button>
+                    </form>
+                </div>
+                
+            <% })} else { %>
+            <h1>No TASKS</h1>
+            <% } %>
+        </div>
     </main>
 </body>
 </html>
