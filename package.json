@@ -1,0 +1,23 @@
+{
+  "name": "filesystem",
+  "version": "1.0.0",
+  "description": "node.js api using filesystem",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AMJ5670886/filesystem.git"
+  },
+  "keywords": [
+    "file",
+    "storing"
+  ],
+  "author": "ajold",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AMJ5670886/filesystem/issues"
+  },
+  "homepage": "https://github.com/AMJ5670886/filesystem#readme"
+}
