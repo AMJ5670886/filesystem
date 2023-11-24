@@ -1,0 +1,17 @@
+
+.font-size {
+    font-family: 'Open Sans', sans-serif;
+    font-size: inherit ;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    margin: 0;
+}
+
+.centered {
+    padding-top: 5vh;
+}
